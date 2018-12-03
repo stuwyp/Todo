@@ -1,0 +1,34 @@
+<form bindsubmit="formSubmit" report-submit>
+  <view style="width:100%; height:100%;">
+    <view class='section'>
+      <input class='fill60' name="todo_title" placeholder='请输入标题' value='{{todo_title}}'></input>
+    </view>
+    <view class='line'></view>
+    <view class='section'>
+      <textarea class='fill360' name="todo_content" placeholder='请输入内容' value='{{todo_content}}'></textarea>
+    </view>
+    <!-- <view class='section'>
+      <text class='addimg'>添加照片</text>
+      <image class='jiahao' src='../../../images/jiahao2.png'></image>
+    </view>
+    <view class='line'></view> -->
+    <view class='section middle'>
+      <text class="section_title">截止时间</text>
+      <picker mode="date" value="{{deadline_date}}" start="2018-12-01" end="2020-01-01" bindchange="bindDateChange">
+        <text class='select'> {{deadline_date}}</text>
+      </picker>
+    </view>
+    <view class='section middle'>
+      <text class="section_title">紧急程度</text>
+      <picker bindchange="bindPickerChange" value="{{level}}" range="{{array}}">
+        <view class="picker">
+          <text class='select'>{{array[level]}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='footer'>
+    <button class='leftbtn' bindtap='deleteTodo'>删除</button>
+    <button class='rightbtn' form-type='submit'>修改</button>
+  </view>
+</form>

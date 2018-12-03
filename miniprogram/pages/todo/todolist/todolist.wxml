@@ -1,0 +1,62 @@
+<scroll-view scroll-y="true" class="main">
+  <view class="section">
+
+    <view  class='status' data-id="0" bindtap='showItems'>
+      <text >进行中</text>
+      <image class='arrow' src="{{isShow[0]?'../../../images/xiajiantou.png':'../../../images/youjiantou2.png'}}"></image>
+    </view>
+
+    <view class="todo-section">
+      <block wx:if="{{isShow[0]}}" wx:for="{{doing_todo}}" wx:key="*data-id=doing_todo">
+        <view class="item">
+          <view class='level{{item.level}}'>l</view>
+          <view class="item-inner">
+            <checkbox-group class='checkbox' bindchange="checkboxChange" data-id="{{item._id}}">
+              <checkbox checked="{{item.status}}"></checkbox>
+            </checkbox-group>
+            <view class='todo' bindtap='showTodoDetail'>
+              <text class='todo-title'  data-id="{{item._id}}">{{item.title}}</text>
+              <text class='todo-deadline' data-id="{{item._id}}">{{item.deadline_date}}</text>
+              <text class='todo-deadline-time'>{{item.deadline_time}}</text>
+            </view>
+
+          </view>
+          <image class='del-todo' src='../../../images/shanchu.png' bindtap='delTodo' data-id="{{item._id}}"></image>
+        </view>
+      </block>
+    </view>
+
+  </view>
+
+  <view class="section">
+
+    <view class='status' data-id="1" bindtap='showItems'>
+      <text >已完成</text>
+      <image class='arrow' src="{{isShow[1]?'../../../images/xiajiantou.png':'../../../images/youjiantou2.png'}}"></image>
+    </view>
+
+    <view class="todo-section">
+      <block wx:if="{{isShow[1]}}" wx:for="{{finished_todo}}" wx:key="*data-id=finished_todo">
+        <view class="item">
+          <view class='level{{item.level}}'>l</view>
+          <view class="item-inner">
+            <checkbox-group class='checkbox' bindchange="checkboxChange" data-id="{{item._id}}">
+              <checkbox checked="{{item.status}}"></checkbox>
+                </checkbox-group>
+            <view class='todo finished' bindtap='showTodoDetail'>
+              <text class='todo-title '  data-id="{{item._id}}">{{item.title}}</text>
+              <text class='todo-deadline' data-id="{{item._id}}">{{item.deadline_date}}</text>
+              <text class='todo-deadline-time'>{{item.deadline_time}}</text>
+            </view>
+
+          </view>
+          <image class='del-todo' src='../../../images/shanchu.png' bindtap='delTodo' data-id="{{item._id}}"></image>
+        </view>
+      </block>
+    </view>
+
+  </view>
+</scroll-view>
+
+
+<image class='add-todo' src='../../../images/jiahao.png' bindtap='addTodo'></image>

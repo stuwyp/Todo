@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit" report-submit>
+  <view style="width:100%; height:100%;">
+    <view class='section'>
+      <input class='fill60' name="todo_title" placeholder='请输入标题' value='{{todo_title}}'></input>
+    </view>
+    <view class='line'></view>
+    <view class='section'>
+      <textarea class='fill360' name="todo_content" placeholder='请输入内容' value='{{todo_content}}'></textarea>
+    </view>
+    <!-- <view class='section'>
+      <image class='jiahao' src='../../../images/jiahao2.png'></image>
+      <view class="uploader">
+        <view class="uploader-text" bindtap="doUpload">
+          <text class='addimg'>添加照片</text>
+        </view>
+        <view class="uploader-container" wx:if="{{imgUrl}}">
+          <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+        </view>
+      </view>
+    </view> -->
+    <!-- <view class='line'></view> -->
+    <view class='section middle'>
+      <text class="section_title">截止时间</text>
+      <picker mode="date" value="{{deadline_date}}" start="2018-12-01" end="2020-01-01" bindchange="bindDateChange">
+        <text class='select'> {{deadline_date}}</text>
+      </picker>
+    </view>
+    <view class='section middle'>
+      <text class="section_title">紧急程度</text>
+      <picker bindchange="bindPickerChange" value="{{level}}" range="{{array}}">
+        <view class="picker">
+          <text class='select'>{{array[level]}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='footer'>
+    <button class='leftbtn' bindtap='goHomeIndex'>取消</button>
+    <button class='rightbtn' form-type='submit'>保存</button>
+  </view>
+</form>

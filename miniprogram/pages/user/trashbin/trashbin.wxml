@@ -1,0 +1,33 @@
+<!--pages/user/trashbin/trashbin.wxml-->
+<scroll-view scroll-y="true" class="main">
+  <view class="section">
+
+    <view data-id="0" bindtap='showItems'>
+      <text class='status'>回收站</text>
+      <image class='arrow' src="{{isShow[0]?'../../../images/xiajiantou.png':'../../../images/youjiantou2.png'}}"></image>
+    
+    </view>
+
+    <view class="todo-section">
+      <block wx:if="{{isShow[0]}}" wx:for="{{doing_todo}}" wx:key="*data-id=doing_todo">
+        <view class="item">
+          <view class="item-inner">
+<image class='recover' src='../../../images/huifu.png' bindtap='recoverTodo' data-id = "{{item._id}}"></image>
+            <view class='todo' >
+            <text class='todo-title' bindtap='showTodoDetail'>{{item.title}}</text>
+            <text class='todo-deadline'>{{item.deadline_time}}</text>
+            </view>
+
+<image class='delete' src='../../../images/shanchu.png' bindtap='deleteTodo' data-id = "{{item._id}}"></image>
+          </view>
+                    
+                    
+        </view>
+      </block>
+    </view>
+
+  </view>
+  </scroll-view>
+  
+
+
